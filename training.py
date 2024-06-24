@@ -10,13 +10,13 @@ from keras.datasets import mnist
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 # vizualize dataset
-def plot_input_img(i):
-    plt.imshow(X_train[i], cmap='binary')
-    plt.title(y_train[i])
-    plt.show()
+# def plot_input_img(i):
+#     plt.imshow(X_train[i], cmap='binary')
+#     plt.title(y_train[i])
+#     plt.show()
 
-for i in range(2):
-    plot_input_img(i)
+# for i in range(2):
+#     plot_input_img(i)
 
 # pre process the image
 X_train = X_train.astype(np.float32)/255 #normalize the image to [0, 1]
