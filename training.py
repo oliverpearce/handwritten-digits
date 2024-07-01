@@ -60,7 +60,7 @@ mc = ModelCheckpoint("./bestmodel.keras", monitor='val_accuracy', verbose=1, sav
 cb = [es, mc]
 
 # model training!! 
-his = model.fit(X_train, y_train, epochs=5, validation_split=0.3, callbacks=cb)
+# his = model.fit(X_train, y_train, epochs=10, validation_split=0.3, callbacks=cb)
 # load the best model
 best_model = keras.models.load_model("bestmodel.keras")
 # evaluate the best model!
