@@ -33,15 +33,9 @@ X_test = X_test.astype(np.float32)/255
 X_train = np.expand_dims(X_train, -1) 
 X_test = np.expand_dims(X_test, -1)
 
-# print(X_train.shape)
-# print(X_test.shape)
-
 # one hot encoding
 y_train = keras.utils.to_categorical(y_train)
 y_test = keras.utils.to_categorical(y_test)
-
-# print(y_train)
-# print(y_test)
 
 # create model
 model = Sequential()
