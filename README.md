@@ -11,6 +11,8 @@ from there, using ```pip install [package-name]``` allows you to download the ne
 - keras (3.3.3)
     - tensorflow (2.16.1)
 - matplotlib (3.9.0)
+- pygame (2.6.0)
+- opencv-python (4.10.0.84)
 - ... more to come
 
 ## dataset
