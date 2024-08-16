@@ -1,19 +1,13 @@
 # handwritten-digits
 the "hello world" of ai!
 
+## set-up
+running `python3 -m venv .venv` creates a [virtual environment](https://docs.python.org/3/library/venv.html) to install packages locally in reference to the project.
+
+after that, running `pip install -r requirements.txt` allows you to download the necessary packages into the virtual environment!
+
 ## usage
-running ```python3 -m venv .venv``` creates a [virtual environment](https://docs.python.org/3/library/venv.html) to install packages locally in reference to the project.
-
-from there, using ```pip install [package-name]``` allows you to download the necessary packages into the virtual environment!
-
-## requirements
-- python (3.12.4)
-- keras (3.3.3)
-    - tensorflow (2.16.1)
-- matplotlib (3.9.0)
-- pygame (2.6.0)
-- opencv-python (4.10.0.84)
-- ... more to come
+the command `source .venv/bin/activate` activates the venv, from where you can run the main file with `python3 main.py`!
 
 ## dataset
 the [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is the standard for handwritten digit recognition, which can be retrieved using [keras](https://keras.io/api/datasets/mnist/). this dataset consists of training and test data from which we can train our model. 
