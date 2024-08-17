@@ -73,18 +73,24 @@ while 1:
             img_arr = np.array(pygame.PixelArray(DISPLAY_SURFACE))[rect_min_x:rect_max_x, rect_min_y:rect_max_y]
             img_arr = img_arr.T.astype(np.float32)
 
+            # predict the number from handwritten digit!
             if PREDICT: 
+
+                # resize user drawn number to pass through model 
                 image = cv2.resize(img_arr, (28, 28))
-                image = np.pad(image, (10, 10), 'constant', constant_values=0)
-                image = cv2.resize(image, (28, 28)) / 255
+                image = cv2.resize(image, (28, 28)) / 255.0
 
-                label = str(LABELS[np.argmax(MODEL.predict(image.reshape(1, 28, 28, 1)))])
-
+                # label the image with what model predicts
+                image = image.reshape(1, 28, 28, 1)  # Add batch and channel dimensions
+                label = str(LABELS[np.argmax(MODEL.predict(image))])
+                
+                # render the text and rectangle object
                 text = FONT.render(label, True, RED, WHITE)
-                # pygame.draw.rect(DISPLAY_SURFACE, RED, pygame.Rect(30, 30, 60, 60),  2)
-                rect_obj = pygame.Rect(rect_min_x, rect_min_y, rect_max_x, rect_max_y)
-                # rect_obj.left, rect_obj.bottom = rect_min_x, rect_min_y
+                rect_obj = pygame.Rect(rect_min_x, rect_min_y, rect_max_x-rect_min_x, rect_max_y-rect_min_y) 
+                text_rect = text.get_rect(center=(rect_min_x + (rect_max_x - rect_min_x) // 2, rect_max_y + 20))
 
-                DISPLAY_SURFACE.blit(text, rect_obj)
+                # # draw text and rectangle onto display surface
+                pygame.draw.rect(DISPLAY_SURFACE, RED, rect_obj, 2) 
+                DISPLAY_SURFACE.blit(text, text_rect) 
 
     pygame.display.update()
